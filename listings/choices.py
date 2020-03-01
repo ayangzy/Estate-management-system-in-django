@@ -19,10 +19,11 @@ price_choices = {
 
 
 state_choices = {
-    'AB': 'Abia',
-    'AD': 'Adamawa',
-    'AK': 'Akwa-ibom',
-    'AN': 'Anambra',
-    'Bk': 'Bauchi',
-    'BN': 'Benue'
+    'Abia': 'Abia',
+    'Adamawa': 'Adamawa',
+    'Akwa-ibom': 'Akwa-ibom',
+    'Anambra': 'Anambra',
+    'Bauchi': 'Bauchi',
+    'Benue': 'Benue',
+    'Kwara': 'Kwara'
 }
