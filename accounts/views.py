@@ -60,7 +60,11 @@ def login(request):
 
 
 def logout(request):
-    return render(request, 'accounts/logout.html')
+    if request.method == 'POST':
+        auth.logout(request)
+        return redirect('index')
+    else:
+        return render(request, 'accounts/logout.html')
 
 
 def dashboard(request):
