@@ -84,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'btredb',
         'USER': 'postgres',
-        'PASSWORD': 'felix123',
+        'PASSWORD': 'rock#123',
         'HOST': 'localhost'
     }
 }
@@ -143,3 +143,5 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'ayangefelix8@gmail.com'
 EMAIL_HOST_PASSWORD = ''
 EMAIL_USER_TLD = True
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
