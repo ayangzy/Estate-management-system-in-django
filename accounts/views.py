@@ -2,11 +2,14 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
 from contacts.models import Contact
+from django.contrib.auth.decorators import login_required
+from accounts.decorators import unauthenticated_user
+from django.contrib.auth.models import Group
 
 
 # Create your views here.
 
-
+@unauthenticated_user
 def register(request):
     if request.method == 'POST':
 
@@ -16,7 +19,8 @@ def register(request):
         email = request.POST['email']
         password = request.POST['password']
         password2 = request.POST['password2']
-        user_id = request.POST['user_id']
+        #role = request.POST['role']
+        #user_id = request.POST['user_id']
 
         # check if password mactch.
 
@@ -31,6 +35,8 @@ def register(request):
                     user = User.objects.create_user(
                         username=username, email=email, password=password, first_name=first_name, last_name=last_name
                     )
+                    # group = Group.objects.get_or_create(name='agent')
+                    # user.groups.add(group)
                     # Login after register
                     # auth.login(request, user)
                     # return redirect('index')
@@ -43,7 +49,7 @@ def register(request):
 
         return render(request, 'accounts/register.html')
 
-
+@unauthenticated_user
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -68,7 +74,7 @@ def logout(request):
     else:
         return render(request, 'accounts/logout.html')
 
-
+@login_required(login_url='login')
 def dashboard(request):
     user_contacts = Contact.objects.order_by(
         '-contact_date').filter(user_id=request.user.id)
