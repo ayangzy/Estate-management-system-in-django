@@ -1,6 +1,7 @@
 {% extends 'base.html' %} {% load humanize %}
 {% block title %} featured listings {% endblock %}
 {% block content %}
+
 <section id="showcase-inner" class="py-5 text-white">
     <div class="container">
         <div class="row text-center">
@@ -32,12 +33,12 @@
     <div class="container">
         <div class="row">
             {% if listings %} {% for listing in listings %}
-            <div class="col-md-6 col-lg-4 mb-4">
+            <div class="col-md-6 col-lg-4  mb-4 " >
                 <div class="card listing-preview">
                     <img class="card-img-top" src="{{listing.photo_main.url}}" alt="">
                     <div class="card-img-overlay">
                         <h2>
-                            <span class="badge badge-secondary text-white">{{listing.price}}</span>
+                            <span class="badge badge-secondary text-white">&#8358 {{ listing.price | intcomma}}</span>
                         </h2>
                     </div>
                     <div class="card-body">
@@ -65,7 +66,7 @@
                                 <i class="fas fa-user"></i> {{listing.realtor}}</div>
                         </div>
                         <div class="row text-secondary pb-2">
-                            <div class="col-6">
+                            <div class="col-8">
                                 <i class="fas fa-clock"></i> {{listing.list_date | timesince}}</div>
                         </div>
                         <hr>

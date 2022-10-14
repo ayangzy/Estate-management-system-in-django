@@ -1,39 +1,53 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.css' %}" />
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
     <!-- Custom -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-     <!-- Light box -->
-     <link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}">
-
-     
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <!-- Light box -->
+    <link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}" />
 
     <title>Estate management | {% block title %} Home {% endblock %}</title>
-</head>
-<body>
+
+    <style>
+      .card-img-top {
+        width: 100%;
+        height: 15vw;
+        object-fit: cover;
+      }
+
+      @media only screen and (max-width: 991px) {
+        .card-img-top {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    </style>
+  </head>
+  <body>
     <!--Top bar-->
     {% include 'partials/_topbar.html' %}
 
     <!--Navbar-->
     {% include 'partials/_navbar.html' %}
-      
+
     <!--content-->
     {% block content %} {% endblock %}
 
     <!--footer-->
     {% include 'partials/_footer.html' %}
 
-<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-<script src="{% static 'js/main.js' %}"></script>
-<script src="{% static 'js/lightbox.min.js' %}"></script>
-</body>
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/lightbox.min.js' %}"></script>
+  </body>
 </html>
